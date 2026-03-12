@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurus Services S.A. - Global Ship Registration & Offshore Corporate Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0A1628;
+            --navy-medium: #1A2B4A;
+            --eurus-blue: #1A4F6E;
+            --cream: #F8F6F1;
+            --white: #FFFFFF;
+            --gray-light: #E5E7EB;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--text-primary); background-color: var(--cream); overflow-x: hidden; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px); z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(26,79,110,0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.8rem; }
+        .nav-logo-text { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: #1A4F6E; letter-spacing: 0.08em; line-height: 1.2; }
+        .nav-logo-text span { display: block; font-size: 0.75rem; font-weight: 400; color: #2B6A8A; letter-spacing: 0.1em; }
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
+        .nav-links a { color: var(--navy-deep); text-decoration: none; font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #1A4F6E; transition: width 0.3s; }
+        .nav-links a:hover { color: #1A4F6E; }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* HERO */
+        .hero {
+            position: relative; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            background:
+                linear-gradient(to bottom, rgba(220,240,255,0.88) 0%, rgba(200,230,250,0.92) 100%),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center center / cover no-repeat;
+            overflow: hidden;
+        }
+        .hero-watermark {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.18; pointer-events: none;
+            width: 900px; height: 900px;
+            display: block;
+            margin: auto;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-content { position: relative; z-index: 10; text-align: center; max-width: 900px; padding: 0 2rem; animation: fadeInUp 1s ease-out 0.3s backwards; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700; color: var(--navy-deep); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .hero p { font-size: 1.3rem; color: var(--navy-medium); margin-bottom: 3rem; line-height: 1.6; font-weight: 400; }
+        .cta-button { display: inline-block; padding: 1rem 3rem; background: #1A4F6E; color: #fff; text-decoration: none; font-weight: 600; font-size: 1.1rem; border-radius: 4px; transition: all 0.3s; box-shadow: 0 10px 30px rgba(26,79,110,0.3); }
+        .cta-button:hover { background: #0d3a54; transform: translateY(-2px); box-shadow: 0 15px 40px rgba(26,79,110,0.4); }
+
+        /* SERVICES */
+        .services { padding: 8rem 2rem; background: var(--white); position: relative; }
+        .services::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: #1A4F6E; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 5rem; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--navy-deep); margin-bottom: 1rem; font-weight: 700; }
+        .section-header p { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 300; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+        .service-card { background: var(--cream); padding: 3rem; border-radius: 8px; position: relative; transition: all 0.4s; border: 1px solid transparent; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: #1A4F6E; transition: height 0.4s; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10,22,40,0.1); border-color: rgba(26,79,110,0.3); }
+        .service-card:hover::before { height: 100%; }
+        .service-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy-deep); margin-bottom: 1rem; font-weight: 600; }
+        .service-card p { color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem; }
+
+        /* ABOUT */
+        .about { padding: 8rem 2rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+        .about::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(26,79,110,0.2) 0%, transparent 40%), radial-gradient(circle at 60% 80%, rgba(37,99,235,0.1) 0%, transparent 40%); }
+        .about-content { position: relative; z-index: 10; max-width: 900px; }
+        .about h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #5BA3C9; margin-bottom: 2rem; font-weight: 700; }
+        .about p { font-size: 1.2rem; color: var(--gray-light); line-height: 1.8; margin-bottom: 1.5rem; font-weight: 300; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-top: 4rem; }
+        .stat { text-align: center; }
+        .stat-number { font-family: 'Playfair Display', serif; font-size: 4rem; color: #5BA3C9; font-weight: 700; line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { color: var(--gray-light); font-size: 1.1rem; }
+
+        /* CONTACT */
+        .contact { padding: 8rem 2rem; background: var(--cream); }
+        .contact-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--white); border-radius: 6px; transition: all 0.3s; }
+        .contact-item:hover { transform: translateX(10px); box-shadow: 0 5px 20px rgba(10,22,40,0.1); }
+        .contact-icon { font-size: 2rem; color: #1A4F6E; }
+        .contact-text h4 { font-weight: 600; color: var(--navy-deep); margin-bottom: 0.3rem; }
+        .contact-text p { margin: 0; color: var(--text-secondary); font-size: 1rem; }
+        .contact-form { background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 10px 40px rgba(10,22,40,0.08); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--navy-deep); }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid var(--gray-light); border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1A4F6E; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-button { width: 100%; padding: 1.2rem; background: var(--navy-deep); color: var(--white); border: none; border-radius: 4px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .submit-button:hover { background: var(--navy-medium); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(10,22,40,0.2); }
+
+        /* FOOTER */
+        footer { background: var(--navy-deep); color: var(--gray-light); padding: 4rem 2rem 2rem; text-align: center; }
+        .footer-content { max-width: 1400px; margin: 0 auto; }
+        .footer-logo { display: flex; justify-content: center; margin-bottom: 1rem; }
+        .footer-text { margin-bottom: 2rem; font-weight: 300; }
+        .copyright { padding-top: 2rem; border-top: 1px solid rgba(26,79,110,0.4); font-size: 0.9rem; opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-content { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-watermark { width: 350px; height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo">
+            <svg width="52" height="52" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="redGradNav" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#6B0000"/>
+                  <stop offset="40%" stop-color="#CC2200"/>
+                  <stop offset="100%" stop-color="#FF2200"/>
+                </linearGradient>
+              </defs>
+              <line x1="280" y1="280" x2="280" y2="110" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="280" y2="450" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="110" y2="280" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="160" y2="160" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="400" y2="160" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="160" y2="400" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="400" y2="400" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="200" y2="130" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="360" y2="130" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="130" y2="200" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="130" y2="360" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="200" y2="430" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="360" y2="430" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="430" y2="200" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="430" y2="360" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradNav)" stroke-width="5.5"/>
+              <text x="280" y="104" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">N</text>
+              <text x="280" y="468" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">S</text>
+              <text x="100" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">W</text>
+              <text x="460" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#CC2200" font-weight="700">E</text>
+              <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
+              <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-38,185,118)">U</text>
+              <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-8,88,295)">E</text>
+              <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(38,375,118)">U</text>
+              <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(8,472,295)">S</text>
+            </svg>
+            <div class="nav-logo-text">
+                EURUS SERVICES S.A.
+                <span>Global Ship Registration & Offshore Corporate Services</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <svg class="hero-watermark" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="redGradHero" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#550000"/>
+          <stop offset="40%" stop-color="#CC2200"/>
+          <stop offset="100%" stop-color="#FF2200"/>
+        </linearGradient>
+      </defs>
+      <line x1="280" y1="280" x2="280" y2="110" stroke="#000" stroke-width="4.5"/>
+      <line x1="280" y1="280" x2="280" y2="450" stroke="#000" stroke-width="4.5"/>
+      <line x1="280" y1="280" x2="110" y2="280" stroke="#000" stroke-width="4.5"/>
+      <line x1="280" y1="280" x2="160" y2="160" stroke="#000" stroke-width="3"/>
+      <line x1="280" y1="280" x2="400" y2="160" stroke="#000" stroke-width="3"/>
+      <line x1="280" y1="280" x2="160" y2="400" stroke="#000" stroke-width="3"/>
+      <line x1="280" y1="280" x2="400" y2="400" stroke="#000" stroke-width="3"/>
+      <line x1="280" y1="280" x2="200" y2="130" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="360" y2="130" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="130" y2="200" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="130" y2="360" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="200" y2="430" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="360" y2="430" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="430" y2="200" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="430" y2="360" stroke="#000" stroke-width="1.5"/>
+      <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradHero)" stroke-width="4.5"/>
+      <text x="280" y="104" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="600">N</text>
+      <text x="280" y="468" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="600">S</text>
+      <text x="100" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="600">W</text>
+      <text x="460" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#CC2200" font-weight="600">E</text>
+      <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
+      <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-38,185,118)">U</text>
+      <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-8,88,295)">E</text>
+      <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(38,375,118)">U</text>
+      <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(8,472,295)">S</text>
+    </svg>
+    <div class="hero-content">
+        <h1>International Shipping and Corporate Registry Solutions</h1>
+        <p>Providing reliable international ship registry solutions and offshore corporate structuring for businesses worldwide.</p>
+        <a href="mailto:info@eurusserv.com" class="cta-button">Contact Us</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Reliable and effective solutions tailored to your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card"><span class="service-icon">⚓</span><h3>Ship Registration</h3><p>Comprehensive ship registration services across leading international maritime registries, ensuring full compliance and swift processing for vessel owners worldwide.</p></div>
+            <div class="service-card"><span class="service-icon">💼</span><h3>Offshore Corporate Services</h3><div style="color:var(--text-secondary);line-height:1.8;font-size:1rem;"><p style="margin-bottom:0.8rem;">We provide comprehensive offshore corporate support, including:</p><ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;"><li>🔹 Establishment of New Entities in multiple offshore and international jurisdictions</li><li>🔹 Corporate Structuring & Re-structuring tailored to business needs</li><li>🔹 Constitutional Changes (amendments to Articles/Memorandum, name changes, share changes, director changes, mergers, redomiciliations, dissolutions, etc.)</li><li>🔹 Issuance of Corporate Certificates (Good Standing, Incumbency, Share Certificates, Certified Documents)</li><li>🔹 Due Diligence / KYC / AML Compliance Assistance</li><li>🔹 Corporate Bank Account Opening Support with international banking institutions</li><li>🔹 Provision of Registered Office & Corporate Administration Services</li><li>🔹 Annual Maintenance & Compliance Support</li><li>🔹 Corporate Document Preparation & Filing</li><li>🔹 Liaison with Registries, Authorities, and Financial Institutions</li></ul></div></div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="contact-details">
+                <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4>Head Office</h4><p>Piraeus, 18535, Greece</p></div></div>
+                <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><h4>Phone</h4><p>+30 694 716 9236</p></div></div>
+                <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>info@eurusserv.com</p></div></div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <div class="form-group"><label>Your Name</label><input type="text"/></div>
+            <div class="form-group"><label>Email Address</label><input type="email"/></div>
+            <div class="form-group"><label>Company</label><input type="text"/></div>
+            <div class="form-group"><label>Message</label><textarea></textarea></div>
+            <button class="submit-button">Send Message</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <svg width="60" height="60" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="redGradFoot" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6B0000"/>
+                    <stop offset="40%" stop-color="#CC2200"/>
+                    <stop offset="100%" stop-color="#FF2200"/>
+                  </linearGradient>
+                </defs>
+                <line x1="280" y1="280" x2="280" y2="110" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="280" y2="450" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="110" y2="280" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="160" y2="160" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="400" y2="160" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="160" y2="400" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="400" y2="400" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="200" y2="130" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="360" y2="130" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="130" y2="200" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="130" y2="360" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="200" y2="430" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="360" y2="430" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="430" y2="200" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="430" y2="360" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradFoot)" stroke-width="4.5"/>
+                <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500">R</text>
+                <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(-38,185,118)">U</text>
+                <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(-8,88,295)">E</text>
+                <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(38,375,118)">U</text>
+                <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(8,472,295)">S</text>
+            </svg>
+        </div>
+        <p class="footer-text">Global Ship Registration & Offshore Corporate Services</p>
+        <div class="copyright">&copy; 2026 Eurus Services S.A. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+</body>
+</html>
