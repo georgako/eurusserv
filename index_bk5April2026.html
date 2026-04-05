@@ -52,16 +52,18 @@
             justify-content: center;
             text-align: center;
             padding: 0 2rem;
-            background: #D6E8F3;
+            background:
+                linear-gradient(to bottom, rgba(220,240,255,0.88) 0%, rgba(200,230,250,0.92) 100%),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center center / cover no-repeat;
             overflow: hidden;
         }
         .hero-logo-overlay {
             position: absolute;
-            top: 68%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 480px;
-            height: 480px;
+            width: 550px;
+            height: 550px;
             opacity: 0.30;
             pointer-events: none;
             z-index: 0;
@@ -84,7 +86,7 @@
             color: #1A2B4A;
             line-height: 1.7;
             max-width: 650px;
-            margin-bottom: 10rem;
+            margin-bottom: 2.5rem;
         }
         .hero a.cta-button {
             position: relative;
@@ -93,7 +95,6 @@
             padding: 1rem 3rem;
             background: #1A4F6E;
             color: #fff;
-            border: none;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -157,7 +158,40 @@
 <nav>
     <div class="nav-container">
         <div class="nav-logo">
-            <img src="assets/EURUS_Logo.jpg" alt="Eurus Services Logo" height="52" style="display:block; mix-blend-mode: multiply;">
+            <svg width="52" height="52" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="redGradNav" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#6B0000"/>
+                  <stop offset="40%" stop-color="#CC2200"/>
+                  <stop offset="100%" stop-color="#FF2200"/>
+                </linearGradient>
+              </defs>
+              <line x1="280" y1="280" x2="280" y2="110" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="280" y2="450" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="110" y2="280" stroke="#000" stroke-width="5.5"/>
+              <line x1="280" y1="280" x2="160" y2="160" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="400" y2="160" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="160" y2="400" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="400" y2="400" stroke="#000" stroke-width="3.5"/>
+              <line x1="280" y1="280" x2="200" y2="130" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="360" y2="130" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="130" y2="200" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="130" y2="360" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="200" y2="430" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="360" y2="430" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="430" y2="200" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="430" y2="360" stroke="#000" stroke-width="2"/>
+              <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradNav)" stroke-width="5.5"/>
+              <text x="280" y="104" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">N</text>
+              <text x="280" y="468" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">S</text>
+              <text x="100" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#000" font-weight="700">W</text>
+              <text x="460" y="286" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#CC2200" font-weight="700">E</text>
+              <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
+              <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-38,185,118)">U</text>
+              <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-8,88,295)">E</text>
+              <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(38,375,118)">U</text>
+              <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(8,472,295)">S</text>
+            </svg>
             <div class="nav-logo-text">
                 EURUS SERVICES S.A.
                 <span>Vessel Registration & Offshore Corporate Services</span>
@@ -174,48 +208,33 @@
 <section id="home" class="hero">
     <svg class="hero-logo-overlay" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="redGradHero" x1="280" y1="280" x2="390" y2="280" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#3A0000"/>
-          <stop offset="60%" stop-color="#CC2200"/>
+        <linearGradient id="redGradHero" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#6B0000"/>
+          <stop offset="40%" stop-color="#CC2200"/>
           <stop offset="100%" stop-color="#FF2200"/>
         </linearGradient>
       </defs>
-      <!-- Cardinal axes -->
-      <line x1="280" y1="280" x2="280" y2="108" stroke="#111" stroke-width="4"/>
-      <line x1="280" y1="280" x2="280" y2="452" stroke="#111" stroke-width="4"/>
-      <line x1="280" y1="280" x2="108" y2="280" stroke="#111" stroke-width="4"/>
-      <!-- East needle: solid to 390, gap, then dash to 470 -->
-      <line x1="280" y1="280" x2="390" y2="280" stroke="url(#redGradHero)" stroke-width="4"/>
-      <line x1="405" y1="280" x2="455" y2="280" stroke="#CC2200" stroke-width="4"/>
-      <!-- 45° diagonals -->
-      <line x1="280" y1="280" x2="154" y2="154" stroke="#111" stroke-width="2.5"/>
-      <line x1="280" y1="280" x2="406" y2="154" stroke="#111" stroke-width="2.5"/>
-      <line x1="280" y1="280" x2="154" y2="406" stroke="#111" stroke-width="2.5"/>
-      <line x1="280" y1="280" x2="406" y2="406" stroke="#111" stroke-width="2.5"/>
-      <!-- 22.5° lines (between cardinal and 45°) -->
-      <line x1="280" y1="280" x2="193" y2="122" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="367" y2="122" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="122" y2="193" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="122" y2="367" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="193" y2="438" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="367" y2="438" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="438" y2="193" stroke="#111" stroke-width="1.2"/>
-      <line x1="280" y1="280" x2="438" y2="367" stroke="#111" stroke-width="1.2"/>
-      <!-- 11.25° lines (finest spokes) -->
-      <line x1="280" y1="280" x2="237" y2="113" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="323" y2="113" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="113" y2="237" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="113" y2="323" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="237" y2="447" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="323" y2="447" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="447" y2="237" stroke="#111" stroke-width="0.7"/>
-      <line x1="280" y1="280" x2="447" y2="323" stroke="#111" stroke-width="0.7"/>
-      <!-- EURUS letters evenly spaced on arc -->
-      <text x="100" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-72,100,183)">E</text>
-      <text x="172" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-36,172,100)">U</text>
-      <text x="280" y="68" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
-      <text x="388" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(36,388,100)">U</text>
-      <text x="460" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(72,460,183)">S</text>
+      <line x1="280" y1="280" x2="280" y2="110" stroke="#000" stroke-width="5.5"/>
+      <line x1="280" y1="280" x2="280" y2="450" stroke="#000" stroke-width="5.5"/>
+      <line x1="280" y1="280" x2="110" y2="280" stroke="#000" stroke-width="5.5"/>
+      <line x1="280" y1="280" x2="160" y2="160" stroke="#000" stroke-width="3.5"/>
+      <line x1="280" y1="280" x2="400" y2="160" stroke="#000" stroke-width="3.5"/>
+      <line x1="280" y1="280" x2="160" y2="400" stroke="#000" stroke-width="3.5"/>
+      <line x1="280" y1="280" x2="400" y2="400" stroke="#000" stroke-width="3.5"/>
+      <line x1="280" y1="280" x2="200" y2="130" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="360" y2="130" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="130" y2="200" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="130" y2="360" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="200" y2="430" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="360" y2="430" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="430" y2="200" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="430" y2="360" stroke="#000" stroke-width="2"/>
+      <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradHero)" stroke-width="5.5"/>
+      <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
+      <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-38,185,118)">U</text>
+      <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-8,88,295)">E</text>
+      <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(38,375,118)">U</text>
+      <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(8,472,295)">S</text>
     </svg>
     <h1>International Shipping and Corporate Registry Solutions</h1>
     <p>Providing reliable international ship registry solutions and offshore corporate structuring for businesses worldwide.</p>
@@ -279,13 +298,43 @@
                 <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>info@eurusserv.com</p></div></div>
             </div>
         </div>
+
     </div>
 </section>
 
 <footer>
     <div class="footer-content">
         <div class="footer-logo">
-            <img src="assets/EURUS_Logo.jpg" alt="Eurus Services Logo" height="90" style="display:block; mix-blend-mode: multiply; opacity: 0.75;">
+            <svg width="90" height="90" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="redGradFoot" x1="280" y1="280" x2="470" y2="280" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6B0000"/>
+                    <stop offset="40%" stop-color="#CC2200"/>
+                    <stop offset="100%" stop-color="#FF2200"/>
+                  </linearGradient>
+                </defs>
+                <line x1="280" y1="280" x2="280" y2="110" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="280" y2="450" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="110" y2="280" stroke="#aaa" stroke-width="4.5"/>
+                <line x1="280" y1="280" x2="160" y2="160" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="400" y2="160" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="160" y2="400" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="400" y2="400" stroke="#aaa" stroke-width="3"/>
+                <line x1="280" y1="280" x2="200" y2="130" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="360" y2="130" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="130" y2="200" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="130" y2="360" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="200" y2="430" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="360" y2="430" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="430" y2="200" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="430" y2="360" stroke="#aaa" stroke-width="1.5"/>
+                <line x1="280" y1="280" x2="470" y2="280" stroke="url(#redGradFoot)" stroke-width="4.5"/>
+                <text x="280" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500">R</text>
+                <text x="185" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(-38,185,118)">U</text>
+                <text x="88" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(-8,88,295)">E</text>
+                <text x="375" y="118" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(38,375,118)">U</text>
+                <text x="472" y="295" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#5BA3C9" font-weight="500" transform="rotate(8,472,295)">S</text>
+            </svg>
         </div>
         <p class="footer-text">Vessel Registration & Offshore Corporate Services</p>
         <div class="copyright">&copy; 2026 Eurus Services S.A. All rights reserved.</div>
