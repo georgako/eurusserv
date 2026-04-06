@@ -43,60 +43,52 @@
         .nav-links a:hover { color: #1A4F6E; }
         .nav-links a:hover::after { width: 100%; }
 
-        /* ── HERO ─────────────────────────────────────────────────────── */
         .hero {
             position: relative;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
             background: #D6E8F3;
             overflow: hidden;
         }
-
-        /* Compass sits centred behind everything */
-        .hero-compass {
+        .hero-logo-overlay {
             position: absolute;
-            top: 50%;
+            top: 68%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 480px;
             height: 480px;
-            opacity: 0.22;
+            opacity: 0.30;
             pointer-events: none;
             z-index: 0;
         }
-
-        /* Single centred column that holds text + button, on top of compass */
-        .hero-inner {
+        .hero h1 {
             position: relative;
             z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-        }
-
-        .hero-inner h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.8rem;
             font-weight: 700;
             color: #0A1628;
             line-height: 1.15;
             max-width: 800px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
-
-        .hero-inner p {
+        .hero p {
+            position: relative;
+            z-index: 2;
             font-size: 1.2rem;
             color: #1A2B4A;
             line-height: 1.7;
-            max-width: 620px;
-            margin-bottom: 2.4rem;
+            max-width: 650px;
+            margin-bottom: 10rem;
         }
-
-        .hero-inner a.cta-button {
+        .hero a.cta-button {
+            position: relative;
+            z-index: 2;
             display: inline-block;
             padding: 1rem 3rem;
             background: #1A4F6E;
@@ -109,8 +101,7 @@
             box-shadow: 0 10px 30px rgba(26,79,110,0.3);
             transition: all 0.3s;
         }
-        .hero-inner a.cta-button:hover { background: #0d3a54; transform: translateY(-2px); }
-        /* ──────────────────────────────────────────────────────────────── */
+        .hero a.cta-button:hover { background: #0d3a54; transform: translateY(-2px); }
 
         .services { padding: 8rem 2rem; background: var(--white); position: relative; }
         .services::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: #1A4F6E; }
@@ -154,8 +145,7 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-inner h1 { font-size: 2.5rem; }
-            .hero-compass { width: 220px; height: 220px; }
+            .hero h1 { font-size: 2.5rem; }
             .section-header h2 { font-size: 2.5rem; }
             .services-grid { grid-template-columns: 1fr; }
             .contact-content { grid-template-columns: 1fr; gap: 3rem; }
@@ -182,53 +172,54 @@
 </nav>
 
 <section id="home" class="hero">
-    <!-- Compass behind everything -->
-    <svg class="hero-compass" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="redGradHero" x1="280" y1="280" x2="390" y2="280" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#3A0000"/>
-              <stop offset="60%" stop-color="#CC2200"/>
-              <stop offset="100%" stop-color="#FF2200"/>
-            </linearGradient>
-          </defs>
-          <line x1="280" y1="280" x2="280" y2="108" stroke="#111" stroke-width="4"/>
-          <line x1="280" y1="280" x2="280" y2="452" stroke="#111" stroke-width="4"/>
-          <line x1="280" y1="280" x2="108" y2="280" stroke="#111" stroke-width="4"/>
-          <line x1="280" y1="280" x2="390" y2="280" stroke="url(#redGradHero)" stroke-width="4"/>
-          <line x1="405" y1="280" x2="455" y2="280" stroke="#CC2200" stroke-width="4"/>
-          <line x1="280" y1="280" x2="154" y2="154" stroke="#111" stroke-width="2.5"/>
-          <line x1="280" y1="280" x2="406" y2="154" stroke="#111" stroke-width="2.5"/>
-          <line x1="280" y1="280" x2="154" y2="406" stroke="#111" stroke-width="2.5"/>
-          <line x1="280" y1="280" x2="406" y2="406" stroke="#111" stroke-width="2.5"/>
-          <line x1="280" y1="280" x2="193" y2="122" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="367" y2="122" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="122" y2="193" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="122" y2="367" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="193" y2="438" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="367" y2="438" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="438" y2="193" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="438" y2="367" stroke="#111" stroke-width="1.2"/>
-          <line x1="280" y1="280" x2="237" y2="113" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="323" y2="113" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="113" y2="237" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="113" y2="323" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="237" y2="447" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="323" y2="447" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="447" y2="237" stroke="#111" stroke-width="0.7"/>
-          <line x1="280" y1="280" x2="447" y2="323" stroke="#111" stroke-width="0.7"/>
-          <text x="100" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-72,100,183)">E</text>
-          <text x="172" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-36,172,100)">U</text>
-          <text x="280" y="68" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
-          <text x="388" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(36,388,100)">U</text>
-          <text x="460" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(72,460,183)">S</text>
-        </svg>
-
-    <!-- Text & CTA on top -->
-    <div class="hero-inner">
-        <h1>International Shipping and Corporate Registry Solutions</h1>
-        <p>Providing reliable international ship registry solutions and offshore corporate structuring for businesses worldwide.</p>
-        <a href="/cdn-cgi/l/email-protection#4d24232b220d28383f383e3e283f3b632e2220" class="cta-button">Contact Us</a>
-    </div>
+    <svg class="hero-logo-overlay" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="redGradHero" x1="280" y1="280" x2="390" y2="280" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#3A0000"/>
+          <stop offset="60%" stop-color="#CC2200"/>
+          <stop offset="100%" stop-color="#FF2200"/>
+        </linearGradient>
+      </defs>
+      <!-- Cardinal axes -->
+      <line x1="280" y1="280" x2="280" y2="108" stroke="#111" stroke-width="4"/>
+      <line x1="280" y1="280" x2="280" y2="452" stroke="#111" stroke-width="4"/>
+      <line x1="280" y1="280" x2="108" y2="280" stroke="#111" stroke-width="4"/>
+      <!-- East needle: solid to 390, gap, then dash to 470 -->
+      <line x1="280" y1="280" x2="390" y2="280" stroke="url(#redGradHero)" stroke-width="4"/>
+      <line x1="405" y1="280" x2="455" y2="280" stroke="#CC2200" stroke-width="4"/>
+      <!-- 45° diagonals -->
+      <line x1="280" y1="280" x2="154" y2="154" stroke="#111" stroke-width="2.5"/>
+      <line x1="280" y1="280" x2="406" y2="154" stroke="#111" stroke-width="2.5"/>
+      <line x1="280" y1="280" x2="154" y2="406" stroke="#111" stroke-width="2.5"/>
+      <line x1="280" y1="280" x2="406" y2="406" stroke="#111" stroke-width="2.5"/>
+      <!-- 22.5° lines (between cardinal and 45°) -->
+      <line x1="280" y1="280" x2="193" y2="122" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="367" y2="122" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="122" y2="193" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="122" y2="367" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="193" y2="438" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="367" y2="438" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="438" y2="193" stroke="#111" stroke-width="1.2"/>
+      <line x1="280" y1="280" x2="438" y2="367" stroke="#111" stroke-width="1.2"/>
+      <!-- 11.25° lines (finest spokes) -->
+      <line x1="280" y1="280" x2="237" y2="113" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="323" y2="113" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="113" y2="237" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="113" y2="323" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="237" y2="447" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="323" y2="447" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="447" y2="237" stroke="#111" stroke-width="0.7"/>
+      <line x1="280" y1="280" x2="447" y2="323" stroke="#111" stroke-width="0.7"/>
+      <!-- EURUS letters evenly spaced on arc -->
+      <text x="100" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-72,100,183)">E</text>
+      <text x="172" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(-36,172,100)">U</text>
+      <text x="280" y="68" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500">R</text>
+      <text x="388" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(36,388,100)">U</text>
+      <text x="460" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="52" fill="#1A4F6E" font-weight="500" transform="rotate(72,460,183)">S</text>
+    </svg>
+    <h1>International Shipping and Corporate Registry Solutions</h1>
+    <p>Providing reliable international ship registry solutions and offshore corporate structuring for businesses worldwide.</p>
+    <a href="mailto:info@eurusserv.com" class="cta-button">Contact Us</a>
 </section>
 
 <section id="services" class="services">
@@ -285,7 +276,7 @@
             <div class="contact-details">
                 <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4>Head Office</h4><p>Piraeus, 18535, Greece</p></div></div>
                 <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><h4>Phone</h4><p>+30 694 716 9236</p></div></div>
-                <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2841464e47684d5d5a5d5b5b4d5a5e064b4745">[email&#160;protected]</a></p></div></div>
+                <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>info@eurusserv.com</p></div></div>
             </div>
         </div>
     </div>
@@ -301,5 +292,13 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    document
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+</body>
+</html>
